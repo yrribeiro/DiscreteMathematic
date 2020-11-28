@@ -1,0 +1,34 @@
+def coef():
+    a = int(input()) #recebe um inteiro
+    b = int(input()) #recebe um inteiro
+    i = 0
+    a1 = a #variavel que vai ter valor mudado
+    m1 = b #variavel que vai ter valor mudado
+ 
+    if a != 0 and b != 0:
+        while m1 !=0: #algoritmo de Euclides, vai se repetindo até resto ser = 0, onde pegamos 'm1' que vai ser o resultado do mdc
+            resto = a1 % m1
+            a1 = m1
+            m1 = resto
+ 
+ 
+    mdc = a1 #variavel recebe valor do mdc
+ 
+    if a == 0 or b == 0:
+        mdc = a
+        if b > a:
+            mdc = b
+            print(mdc,"=",str(a) +"*"+ "0","+",str(b)+"*"+"1")
+            return
+        print(mdc,"=",str(a) +"*"+ "1","+",str(b)+"*"+"0")
+        return
+ 
+    while 1:
+        if (a*i)%b == mdc: #se isso for verdade então s = i, onde s está na fórmula "mdc = a*s + b*t"
+            break
+        i += 1
+    j = int(((a*i)/b)*-1) #agora t = j, onde t está na fórmula "mdc = a*s + b*t"
+ 
+    print(mdc,"=",str(a) +"*"+ str(i),"+",str(b)+"*"+"("+str(j)+")") #imprime a fórmula, com seus respectvos valores
+ 
+coef()
