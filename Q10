@@ -1,0 +1,60 @@
+def resto (n):
+    a = []     #array       
+    b = []     #array    
+    c = []     #array
+    d = []     #array
+    e = []     #array
+    f = []     #array
+    i= 0
+    mod = 1
+    r = 0
+    while i < n: # inicialiliza todas as posições de c que serão utilizadas com 1
+        c.append(1)
+        i += 1
+ 
+    i=0
+ 
+    while i < n:
+        a.append(int(input()))   #recebe um inteiro e coloca no menor índice que esteja vazio
+        b.append(int(input()))   #recebe um inteiro e coloca no menor índice que esteja vazio
+        mod = mod * b[i]         #mod da solução única, dado pela multiplicação de todos os mod
+        i += 1
+    i = 0
+    j = 0
+ 
+    while i < n:
+        while j < n:
+            if j != i:
+                c[i] = c[i] * b[j] #devemos obter uma coluna na qual resulta da multiplação de todos os mod's, excluindo o da mesma 'linha'
+            j += 1
+        i += 1
+        j = 0
+    i = 0
+ 
+    while i < n: 
+        d.append(c[i]%b[i])  #congruencia
+        i += 1
+ 
+    i = 0
+    j = 1
+ 
+    while i < n:
+        while 1:
+            if (d[i]*j)%b[i] == 1: #calculando o inverso
+                e.append(j)
+                break
+            j += 1
+        i += 1
+        j = 1
+ 
+    i=0
+ 
+    while i < n:
+        f.append(a[i]*c[i]*e[i])  #pegasse todos os falores de f, e os soma para conseguirmos chegar na solução única
+        r += f[i]
+        i += 1
+ 
+    r = r%mod #colocamos resto mod(mod geral do teorema, dada pela multiplicação de todos os mod)
+    print(r)  #imprime solução única
+ 
+resto(int(input()))
