@@ -1,0 +1,21 @@
+import math
+import time
+def primo(n, y, i, cont, inicio): 
+    while 1:   
+        fim = time.time()   #recebe o tempo atual, a cada vez q passar por ele
+        if fim - inicio > 60:   #difereça entre eles, é a quantidade de tempo que o programa está em execução   
+            return              #se for maior que 60s, encerra o programa
+        y = math.sqrt(n)  #'y' recebe a raiz de 'n'
+        if i > y: #para saber se um numero é primo, só é preciso verificar se tem divisores até a raiz do numero
+            if cont == 1: # se cont = 1, quer dizer que o único numero que divide o 'n' é 1, logo é primo
+                print(n) #imprime o número primo
+            if n < 3:  # se o numero for menor que 3, somasse apenas 1 pra verificar o próximo número, pois, o único número primo par, é 2
+                n += 1; y = 0; i = 1; cont = 0  #reinicia as variaveis, e aumenta 1 no 'n'
+            else: # apartir do 3, verificamos apenas os números impares
+                n += 2; y = 0; i = 1; cont = 0 #reinicia as variaves, e aumenta 2 no 'n'
+        else:
+            if n%i == 0:  #verifica se existe divisores exatos
+                cont += 1  #se houver, almenta 1 no cont
+            i += 1  #divisor vai aumentando 1 por vez
+inicio = time.time() #começa a contagem de tempo
+primo(1,0,1,0, inicio)
