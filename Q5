@@ -1,0 +1,16 @@
+def euclides():
+    a = int(input()) #recebe um número inteiro
+    b = int(input()) #recebe um número inteiro
+    a1 = a  #variavel que vai ter valor mudado
+    m1 = b  #variavel que vai ter valor mudado
+ 
+    while m1 !=0: #algoritmo de Euclides, vai se repetindo até resto ser = 0, onde pegamos 'm1' que vai ser o resultado do mdc
+        resto = a1 % m1
+        a1 = m1
+        m1 = resto
+ 
+ 
+    print("mdc({0},{1}) = {2}".format(a,b,a1)) #imprime os números dados e o resultado do mdc
+ 
+ 
+euclides()
