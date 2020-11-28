@@ -1,0 +1,18 @@
+import math
+ 
+def primo(n, y, i, cont): 
+    while 1:   #repetição infinita, onde vai ser parada por um return
+        y = math.sqrt(n)  #pega a raiz do n
+        if i > y:   #para saber se um numero é primo, só é preciso verificar se tem divisores até a raiz do numero
+            if cont == 1: # se cont = 1, quer dizer que o único numero que divide o 'n' é 1, logo é primo
+                print("É primo!")
+                return 
+            else:   #se cont > 1, quer dizer que existe mais de 1 divisor até a raiz, logo não é primo
+                print("Não é primo!")
+                return 
+        else:
+            if n%i == 0:  #verifica se existe divisores exatos
+                cont += 1  #se houver, almenta 1 no cont
+            i += 1    #divisor vai aumentando 1 por vez
+ 
+primo(int(input()),0,1,0)
