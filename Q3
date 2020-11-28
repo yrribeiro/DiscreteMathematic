@@ -1,0 +1,22 @@
+def terc():
+    a = int(input())  #solicita a entrada de 1 número
+    v = 1 #variavel que vai ser responsavel pelo resultado da fatoração dos numeros
+    i = 2 #menor primo
+    cont = 0 #verificador se vão ser necessario ou não reiniciar o numero primo para 2
+ 
+    while a > 1:  #se a = 1, quer dizer que a fatoração j´´a foi concluida, logo o codigo deve parar
+        if a%i == 0: #verifica se o numero tem algum divisor exato
+            a = a/i #se tiver então o novo valor do numero vai ser a divisão do atual 'a' com o divisor
+            cont += 1   #adicionamos 1 ao cont
+            if a > 1: #se a > 1, quer diser que ainda existem outros numeros para a fatoração, logo imprimimos um numero com multiplicação ao lado
+                print("{0} * " .format(i), end="") 
+            else: #caso contrário, imprimimos com um '=', pois é o último número da fatoração
+                print("{0} = " .format(i), end="")
+ 
+        if cont > 0: #verifica se cont aumentou, se aumentou multiplica o valor da fatoração, reinicia o cont e o menor primo(i)
+            v = v*i
+            cont = 0
+            i = 2
+        else: # caso não aumentou, aumentaremos o divisor em 1
+            i +=1 
+    print(v) #imprime o resultado da multiplicação da fatoração
