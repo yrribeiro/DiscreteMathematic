@@ -1,0 +1,13 @@
+def inverso():
+    a = int(input()) #recebe um inteiro
+    b = int(input()) # recebe um inteiro
+    i = 0
+ 
+    while 1:
+        if (a*i)%b == 1: #fórmula para obter um dos inversos de "a mod b"
+            break
+        i += 1
+ 
+    print(i) #imprime o inverso de "a mod b"
+ 
+inverso()
