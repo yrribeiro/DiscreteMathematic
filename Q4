@@ -1,0 +1,33 @@
+def quart():
+    a = int(input()) #recebe um inteiro como entrada
+    b = int(input()) #recebe um inteiro como entrada
+    a1 = a; m1 = b; a2 = a; m2 = b; i =2; cont = 0; v = 1  #'a1' e 'a2' recebem o valor de a, pois no mdc e mmc os valores serão mudados
+                                                           #'m1' e 'm2' recebem o valor de b, pois no mdc e mmc os valores serão mudados
+ 
+    while a2 > 1 or m2 > 1: #repetição só é parada, quando os dois numeros são 1, pois mmc chega ao fim quando se tem 1 no final de ambos
+        if a2%i == 0: #verifica se o divisor tem resto 0, com o numero
+            a2 = a2/i   #novo a2, sera o resatado da divisão do atual com o numero divisor
+            cont += 1 # cont adiciona 1
+        if m2%i == 0: #verifica se o divisor tem resto 0, com o numero
+            m2 = m2/i #novo m2, sera o resatado da divisão do atual com o numero divisor
+            cont +=1 # cont adiciona 1
+        if cont > 0: #se cont foi alterado, quer dizer que ouve divisão, então multiplica a variavel reponsavel pelo resultado do mmc
+            v = v*i # variavel responsavel pelo mmc
+            cont = 0 #reiniciamos o cont
+            i = 2 #reiniciamos o menor primo
+        else: #caso não tenha se alterado
+            i +=1 #aumentamos o divisor em 1
+ 
+    print("mmc({0},{1}) = {2}" .format(a,b,v)) #impreme os numeros dados e o resultado do mmc
+ 
+ 
+    while m1 !=0: #algoritmo de Euclides, vai se repetindo até resto ser = 0, onde pegamos 'm1' que vai ser o resultado do mdc
+        resto = a1 % m1
+        a1 = m1  
+        m1 = resto
+ 
+ 
+    print("mdc({0},{1}) = {2}".format(a,b,a1)) #imprime os números dados e o resultado do mdc
+ 
+ 
+quart()
