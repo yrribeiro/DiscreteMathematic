@@ -1,0 +1,42 @@
+def cong():
+    a = int(input()) #recebe um inteiro
+    b = int(input()) #recebe um inteiro
+    m = int(input()) #recebe um inteiro
+    a1 = a #armazena variável que vai ser mudada
+    m1 = m #armazena variável que vai ser mudada
+    i=0
+ 
+    while m1 !=0: #fórmula de Euclides
+        resto = a1 % m1
+        a1 = m1
+        m1 = resto
+ 
+    mdc1 = a1 #resultado do mdc
+    cont = mdc1 #salvo em outra variável pra depois imprimir todas as soluções
+ 
+    if mdc1 > 1 and b%mdc1 == 0: #simplifica por exemplo de 8x ≡ 12 (mod 28) para 2x ≡ 3 (mod 7)
+        a = int(a/mdc1)
+        b = int(b/mdc1)
+        m = int(m/mdc1)
+        mdc1 = int(mdc1/mdc1)
+ 
+    if mdc1 == 1:
+        while 1:  #buscando o inverso
+            if(a*i)%m == b:
+                break
+            i += 1
+    else:  #se mdc for maior que 1, quer dizer que não existe uma solução válida
+        print("Sem solução!")
+        return
+ 
+    print("\nFórmula geral:")
+    print(i, "+", str(m) + "k (k é um inteiro)\n")  #imprime a formula geral
+    print("Soluções da congruência:")
+ 
+    j=0
+ 
+    while j < cont: 
+        print(i, "+", m, "*", j, "=", i+m*j) #imprime todas as soluções válidas
+        j += 1
+ 
+cong()
